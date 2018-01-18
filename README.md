@@ -21,7 +21,9 @@ angle chi with the x-axis.
 ** The program would need to be reconsidered for biaxial crystals.
 
 Tom Essinger-Hileman
+
 Johns Hopkins University
+
 March 2014
 
 
@@ -39,6 +41,7 @@ the transfer matrix, along with Jones and Mueller matrices.
 
 Code snippet to create an AR-coated sapphire half-wave plate to illustrate:
 
+```
   import numpy as np
   import transfer_matrix as tm
 
@@ -56,7 +59,8 @@ Code snippet to create an AR-coated sapphire half-wave plate to illustrate:
   TransferMatrix = tm.StackTransferMatrix( hwp, 145*GHz, 10.0*deg, 0*deg, 1.0, 1.0 )
   Mueller        = tm.Mueller( hwp, 145*GHz, 10*deg, 0*deg, reflected=False)
   Jones          = tm.Jones( hwp, 145*GHz, 10.0*dfeg, 0*deg, reflected=False)
+  ```
   
  The reflected keyword for the Jones and Mueller matrices allows one to specify whether
  you want the matrices for transmission vs. reflection. 
-"""
+ 

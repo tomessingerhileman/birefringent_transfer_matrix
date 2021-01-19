@@ -114,8 +114,8 @@ class material(object):
             s.append("Refractive Index (extraordinary): %f"%(self.extraIndex))
             s.append("Loss Tangent (ordinary): %f"%(self.ordinaryLoss))
             s.append("Loss Tangent (extraordinary): %f"%(self.extraLoss))
-        else: raise ValueError, """materialType is invalid\n.
-                                Must be either 'isotropic' or 'uniaxial.'"""
+        else: raise ValueError("""materialType is invalid\n.
+                                Must be either 'isotropic' or 'uniaxial.'""")
         
         s.append("\n")
 
@@ -467,7 +467,7 @@ def JonesToMueller(jones):
 
             # This is just a sanity check to make sure that the formula works and doesn't leave
             # an imaginary part floating around where the Mueller-matrix elements should be real.
-            if np.imag(temp) > 0.000000001: print 'Discarding an imaginary part unnecessarily!!!!'
+            if np.imag(temp) > 0.000000001: print('Discarding an imaginary part unnecessarily!!!!')
             m[i,j] = np.real(temp)
     return m
 
@@ -492,7 +492,7 @@ def Mueller( stack, frequency, incidenceAngle, rotation, inputIndex=1.0, exitInd
         mueller = JonesToMueller( jones[0] )
     elif reflected==True:
         mueller = JonesToMueller( jones[1] )
-    else: raise ValueError, """Invalid value for reflected. Must be True or False."""
+    else: raise ValueError("""Invalid value for reflected. Must be True or False.""")
 
     return mueller
 
@@ -511,7 +511,7 @@ def Jones( stack, frequency, incidenceAngle, rotation, inputIndex=1.0, exitIndex
         output = jones[0] 
     elif reflected==True:
         output = jones[1]
-    else: raise ValueError, """Invalid value for reflected. Must be True or False."""
+    else: raise ValueError("""Invalid value for reflected. Must be True or False.""")
 
     return output
 

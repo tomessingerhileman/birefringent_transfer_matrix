@@ -56,9 +56,9 @@ Code snippet to create an AR-coated sapphire half-wave plate to illustrate:
   angles      = [0.0, 0.0, 0.0]
   hwp         = tm.Stack( thicknesses, materials, angles )
 
-  TransferMatrix = tm.StackTransferMatrix( hwp, 145*GHz, 10.0*deg, 0*deg, 1.0, 1.0 )
+  TransferMatrix = tm.stackTransferMatrix( hwp, 145*GHz, 10.0*deg, 0*deg, 1.0, 1.0 )
   Mueller        = tm.Mueller( hwp, 145*GHz, 10*deg, 0*deg, reflected=False)
-  Jones          = tm.Jones( hwp, 145*GHz, 10.0*dfeg, 0*deg, reflected=False)
+  Jones          = tm.Jones( hwp, 145*GHz, 10.0*deg, 0*deg, reflected=False)
   ```
   
  The reflected keyword for the Jones and Mueller matrices allows one to specify whether
